@@ -2,7 +2,7 @@
 include 'config.php';
 
 class Pengadu
-{ //disini ada konsep oop class
+{ //disini ada konsep oop class oop yaitu class turunan(pewaris)
     protected $conn; //encasulapsi karena $con hanya bisa di akses oleh class pengadu dan kelas turunan(terlindungi)
 
     public function __construct($conn)
