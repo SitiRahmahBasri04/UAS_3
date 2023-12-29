@@ -6,7 +6,8 @@ interface PengaduanInterface { //
 }
 
 class Pengadu implements PengaduanInterface {//ada konsep oop Claass (kelas induk)
-    protected $conn;//encapsulasi karena hanya dapat diakses oleh kelas induk dan juga kelas turunan(terbungkus)
+    protected $conn;//encapsulasi karena hanya dapat diakses oleh kelas induk dan juga kelas turunan(terbungkus) Konsep yang melibatkan penyembunyian 
+    //implementasi internal dari objek dan hanya mengekspos apa yang diperlukan. 
 
     public function __construct($conn)
     {
@@ -30,7 +31,7 @@ class Pengadu implements PengaduanInterface {//ada konsep oop Claass (kelas indu
     }
 }
 
-class Kejadian extends Pengadu implements PengaduanInterface {
+class Kejadian extends Pengadu implements PengaduanInterface {  // inherentence(turunan dari kelas pengadu) Pewarisan adalah kemampuan objek untuk mewarisi data dan perilaku dari objek lain.
     public function insertData($data) // polimorphism karena sama method dan beda perlakuan atau akan masuk ke class kejadian
     {
         $query = "INSERT INTO kejadian SET
@@ -52,11 +53,12 @@ class PengaduanHandler {
     }
 }
 
-if (isset($_POST['buat'])) {
+if (isset($_POST['buat'])) {      
     $pengaduanHandler = new PengaduanHandler();//objek
 
     $pengaduData = array(
         'nama' => $_POST['nama'],
+
         'jenis_kelamin' => $_POST['jenis_kelamin'],
         'tipe_identitas' => $_POST['tipe_identitas'],
         'nomor_identitas' => $_POST['nomor_identitas'],
